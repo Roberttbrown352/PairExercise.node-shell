@@ -1,8 +1,13 @@
+const pwd = require('./pwd');
+const ls = require('./ls');
+const cat = require('./cat')
+const curl = require('./curl');
+
 process.stdout.write('prompt > ')
 
 process.stdin.on('data', (data) => {
   const cmd = data.toString().trim();
-  pwd(cmd);
+  pwd(cmd, done);
   ls(cmd);
   cat(cmd);
   curl(cmd);
@@ -10,7 +15,9 @@ process.stdin.on('data', (data) => {
   // process.stdout.write('\nprompt > ')
 })
 
-const pwd = require('./pwd');
-const ls = require('./ls');
-const cat = require('./cat')
-const curl = require('./curl');
+function done(outputString){
+  process.stdout.write(outputString)
+  process.stdout.write('\nprompt > ')
+}
+
+module.exports = done

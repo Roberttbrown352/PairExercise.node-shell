@@ -1,7 +1,8 @@
-function pwd(cmd) {
+const done = require('./bash')
+
+function pwd(cmd, done) {
   if(cmd === 'pwd'){
-    process.stdout.write(__dirname)
-    process.stdout.write('\nprompt > ')
+    done(__dirname)
   }
 }
 
