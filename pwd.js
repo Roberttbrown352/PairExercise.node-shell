@@ -1,6 +1,7 @@
 function pwd(cmd) {
   if(cmd === 'pwd'){
-    process.stdout.write(process.env.PWD)
+    process.stdout.write(__dirname)
+    process.stdout.write('\nprompt > ')
   }
 }
 
